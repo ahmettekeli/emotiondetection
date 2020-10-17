@@ -12,14 +12,53 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="./src/style/style.css" />
     <title>Emotion Detection with FaceAPI</title>
   </head>
   <body>
-    <div id="container">
-      <video id="video" playsinline autoplay muted></video>
-      <canvas id="canvas"></canvas>
-    </div>
+        <div class="container-fluid text-center">
+          <div class="row">
+            <div class="col-12 align-items-center">
+              <p class="text-center no-highlighting"></p>
+            </div>
+            <div class="col-12 align-items-center">
+              <p class="text-center no-highlighting"></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+                <video id="video" playsinline autoplay muted></video>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid text-center">
+          <div class="row">
+            <div id="loadingText" class="col-12">
+              <p class="text-center no-highlighting">Models are loading...</p>
+            </div>
+            <div id="spinner" class="col-12">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+          </div>
+           
+          </div>
+          <div class="row justify-content-md-center">
+              <div class="col-6 text-center">
+                    <button
+                      type="button"
+                      id="startBtn"
+                      class="btn btn-primary btn-lg"
+                      disabled="true"
+                    >
+                      Start Detecting
+                    </button>
+              </div>
+          </div>
+        </div>
+
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -35,6 +74,8 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script src="" async defer></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script defer src="./lib/face-api.js"></script>
+    <script src="./dist/app.bundle.js" async defer></script>
   </body>
 </html>
