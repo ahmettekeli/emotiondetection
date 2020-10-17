@@ -1,14 +1,3 @@
-<!-- [![Contributors][contributors-shield]][https://github.com/ahmettekeli/emotiondetection/graphs/contributors]
-[![Forks][forks-shield]][https://github.com/ahmettekeli/emotiondetection/network/members]
-[![Stargazers][stars-shield]][https://github.com/ahmettekeli/emotiondetection/stargazers]
-[![Issues][issues-shield]][https://github.com/ahmettekeli/emotiondetection/issues]
-[![MIT License][license-shield]][https://github.com/ahmettekeli/emotiondetection/blob/master/license.txt]
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/tekeliahmet/] -->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
@@ -16,8 +5,6 @@
 <p align="center">
   <h3 align="center">Emotion Detection</h3>
   <p align="center">
-    <br />
-    <br />
     <a href="https://github.com/ahmettekeli/emotiondetection">View Demo</a>
     ·
     <a href="https://github.com/ahmettekeli/emotiondetection/issues">Report Bug</a>
@@ -120,14 +107,6 @@ Ahmet Tekeli - [@ahmettekeli3](https://twitter.com/ahmettekeli3) - ahmettekeli19
 
 Project Link: [https://github.com/ahmettekeli/emotiondetection](https://github.com/ahmettekeli/emotiondetection)
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
-[contributors-url]: https://github.com/ahmettekeli/emotiondetection/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
-[forks-url]: https://github.com/ahmettekeli/emotiondetection/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
-[stars-url]: https://github.com/ahmettekeli/emotiondetection/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/ahmettekeli/emotiondetection/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
 [license-url]: https://github.com/ahmettekeli/emotiondetection/blob/master/license.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
