@@ -13,20 +13,11 @@ const video = document.getElementById("video"),
 let isPlaying = false;
 
 const captureEmotion = async () => {
-    // // do something with emotion data
-    // const emotion = await fdHelper.captureEmotionFromPic(video);
-    // console.log('emotion:', emotion);
-
     //do something with emotion data
     fdManager.captureEmotionFromVideoContinuous(video, (emotions) => {
-      // console.log("emotions:", emotions);
       initPieChart(emotions);
       helper.setEmotionEmoji(emotions);
     });
-
-    // //do something with emotion data
-    // const emotion = await fdHelper.captureEmotionFromVideoOnce(video);
-    // console.log('emotion:', emotion);
   },
   init = () => {
     fdManager.startVideo();

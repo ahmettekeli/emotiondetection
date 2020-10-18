@@ -9,7 +9,6 @@ const emotion_states = Object.freeze({
 });
 
 const setEmotionEmoji = (emotions) => {
-    //set emoji to DOM here
     let dominantEmotion = Object.keys(emotions).reduce((a, b) => {
       return emotions[a] > emotions[b] ? a : b;
     });

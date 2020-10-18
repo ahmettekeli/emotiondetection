@@ -90,7 +90,7 @@ class FaceDetectionManager {
   }
 
   async captureEmotionFromVideoContinuous(video, callback) {
-    let detections, emotions /*, emotion*/;
+    let detections, emotions;
     const displaySize = {
       width: video.offsetWidth,
       height: video.offsetHeight,
@@ -103,13 +103,6 @@ class FaceDetectionManager {
         .withFaceExpressions();
       if (detections[0] !== undefined) {
         emotions = detections[0].expressions;
-        /* 
-        // returns only the dominant emotion
-        emotion = Object.keys(emotions).reduce((a, b) => {
-          return emotions[a] > emotions[b] ? a : b;
-        });
-        callback(emotion); 
-        */
         callback(emotions);
       } else {
         cancelAnimationFrame(startDetecting.bind(this, faceapi));

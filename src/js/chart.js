@@ -1,9 +1,9 @@
 const helper = require("./helper");
 
 const initPieChart = (data) => {
-  //clear previous svg data.
+  //Clear previous svg data.
   d3.selectAll("g").remove();
-  //data conversion
+  //Data conversion
   data = helper.convertEmotionData(data);
   const width = 300,
     height = 300,
@@ -26,7 +26,7 @@ const initPieChart = (data) => {
     arc = d3.arc().outerRadius(radius).innerRadius(0),
     arcLabel = d3.arc().innerRadius(labelRadius).outerRadius(labelRadius);
 
-  //creating pie pieces from arcs.
+  //Creating pie pieces from arcs.
   const pies = g
     .selectAll(".arc")
     .data(pie(data))
@@ -37,7 +37,7 @@ const initPieChart = (data) => {
     .append("path")
     .attr("d", arc)
     .attr("fill", (d) => colors(d.data.value));
-  // uncomment these for transition effect
+  // Uncomment these for transition
   // .transition()
   // .duration(function (d, i) {
   //   return i * 200;
@@ -50,7 +50,7 @@ const initPieChart = (data) => {
   //   };
   // });
 
-  //adding text data on arcs
+  //Adding text data on arcs
   pies
     .append("g")
     .attr("font-family", "sans-serif")
