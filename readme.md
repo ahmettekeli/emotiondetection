@@ -1,7 +1,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<br />
 <p align="center">
   <h3 align="center">Emotion Detection</h3>
   <p align="center">
@@ -15,17 +14,9 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](live demo link goes here)
+<!-- [![Product Name Screen Shot][product-screenshot]](live demo link goes here) -->
 
 This is a sample Emotion Detection project developed using [FaceAPI](https://github.com/justadudewhohacks/face-api.js/).
-
-### Built and Bundled with
-
-- [Bootstrap](https://getbootstrap.com)
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [D3.js](https://d3js.org/)
-- [Babel](https://babeljs.io/)
-- [Webpack](https://webpack.js.org/)
 
 ### Prerequisites
 
@@ -38,6 +29,11 @@ The tools/software below are needed to build/extend this project.
 ```sh
 npm install npm@latest -g
 ```
+
+### Bundled with
+
+- [Babel](https://babeljs.io/)
+- [Webpack](https://webpack.js.org/)
 
 ### Editing/Extending/Usage
 
@@ -65,7 +61,16 @@ Make sure you have devdependencies in package.json installed and have a "build" 
 "build": "webpack --config webpack.config.js"
 ```
 
-and webpack.config.js file with the following configs
+.babelrc with following configs
+
+```js
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
+}
+```
+
+webpack.config.js file with the following configs
 
 ```js
 const path = require("path");

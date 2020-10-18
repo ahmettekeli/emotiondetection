@@ -1,12 +1,15 @@
 require("regenerator-runtime");
+import initPieChart from "./chart";
 const FaceDetection = require("./FaceDetectionManager");
 
 const video = document.getElementById("video"),
-  fdManager = new FaceDetection(faceapi),
-  eventEmitter = fdManager.eventEmitter,
   loadingText = document.getElementById("loadingText"),
   spinner = document.getElementById("spinner"),
-  startBtn = document.getElementById("startBtn");
+  startBtn = document.getElementById("startBtn"),
+  fdManager = new FaceDetection(faceapi),
+  eventEmitter = fdManager.eventEmitter;
+
+let isPlaying = false;
 
 const captureEmotion = async () => {
     // // do something with emotion data
@@ -15,7 +18,8 @@ const captureEmotion = async () => {
 
     //do something with emotion data
     fdManager.captureEmotionFromVideoContinuous(video, (emotions) => {
-      console.log("current emotion logs from index:", emotions);
+      // console.log("current emotion logs from index:", emotions);
+      initPieChart(emotions);
     });
 
     // //do something with emotion data
@@ -35,7 +39,10 @@ const captureEmotion = async () => {
     });
 
     startBtn.onclick = () => {
-      fdManager.startVideo(captureEmotion);
+      if (!isPlaying) {
+        fdManager.startVideo(captureEmotion);
+        isPlaying = true;
+      }
     };
   };
 
