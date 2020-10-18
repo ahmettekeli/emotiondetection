@@ -1,15 +1,10 @@
-let fixedData;
+const helper = require("./helper");
+
 const initPieChart = (data) => {
   //clear previous svg data.
   d3.selectAll("g").remove();
   //data conversion
-  fixedData = [];
-  for (let index = 0; index < Object.keys(data).length; index++) {
-    fixedData.push({
-      name: Object.keys(data)[index],
-      value: Object.values(data)[index],
-    });
-  }
+  data = helper.convertEmotionData(data);
   const width = 300,
     height = 300,
     svg = d3.select("svg").attr("viewBox", [0, 0, width, height]),
@@ -21,13 +16,10 @@ const initPieChart = (data) => {
     //Arranging color spectrum
     colors = d3
       .scaleOrdinal()
-      .domain(fixedData.map((d) => d.name))
+      .domain(data.map((d) => d.name))
       .range(
         d3
-          .quantize(
-            (t) => d3.interpolateSpectral(t * 0.8 + 0.1),
-            fixedData.length
-          )
+          .quantize((t) => d3.interpolateSpectral(t * 0.8 + 0.1), data.length)
           .reverse()
       ),
     pie = d3.pie().value((d) => d.value),
@@ -37,7 +29,7 @@ const initPieChart = (data) => {
   //creating pie pieces from arcs.
   const pies = g
     .selectAll(".arc")
-    .data(pie(fixedData))
+    .data(pie(data))
     .enter()
     .append("g")
     .attr("class", "arc");
@@ -65,7 +57,7 @@ const initPieChart = (data) => {
     .attr("font-size", 15)
     .attr("text-anchor", "middle")
     .selectAll("text")
-    .data(pie(fixedData))
+    .data(pie(data))
     .join("text")
     .attr("transform", (d) => `translate(${arcLabel.centroid(d)})`)
     .attr("d", arcLabel)

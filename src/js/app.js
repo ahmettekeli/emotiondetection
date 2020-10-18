@@ -1,5 +1,6 @@
 require("regenerator-runtime");
-import initPieChart from "./chart";
+const initPieChart = require("./chart");
+const helper = require("./helper");
 const FaceDetection = require("./FaceDetectionManager");
 
 const video = document.getElementById("video"),
@@ -20,6 +21,7 @@ const captureEmotion = async () => {
     fdManager.captureEmotionFromVideoContinuous(video, (emotions) => {
       // console.log("emotions:", emotions);
       initPieChart(emotions);
+      helper.setEmotionEmoji(emotions);
     });
 
     // //do something with emotion data

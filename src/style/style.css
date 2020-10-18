@@ -1,4 +1,11 @@
+body {
+  background-color: #8b8b8b;
+}
 video {
   max-width: 100% !important;
   height: auto;
+  border-radius: 20px;
+}
+#emojiHolder {
+  font-size: 2rem;
 }
