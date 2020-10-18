@@ -1,23 +1,23 @@
+let fixedData;
 const initPieChart = (data) => {
   //clear previous svg data.
   d3.selectAll("g").remove();
   //data conversion
-  let fixedData = [];
+  fixedData = [];
   for (let index = 0; index < Object.keys(data).length; index++) {
     fixedData.push({
       name: Object.keys(data)[index],
       value: Object.values(data)[index],
     });
   }
-  const svg = d3.select("svg"),
-    width = svg.attr("width"),
-    height = svg.attr("height"),
+  const width = 300,
+    height = 300,
+    svg = d3.select("svg").attr("viewBox", [0, 0, width, height]),
     radius = Math.min(width, height) / 2 - 1,
     labelRadius = (Math.min(width, height) / 2) * 0.8,
     g = svg
       .append("g")
-      .attr("transform", `translate(${width / 2},${height / 2})`)
-      .attr("stroke", "white"),
+      .attr("transform", `translate(${width / 2},${height / 2})`),
     //Arranging color spectrum
     colors = d3
       .scaleOrdinal()
@@ -31,13 +31,38 @@ const initPieChart = (data) => {
           .reverse()
       ),
     pie = d3.pie().value((d) => d.value),
-    path = d3.arc().outerRadius(radius).innerRadius(0),
+    arc = d3.arc().outerRadius(radius).innerRadius(0),
     arcLabel = d3.arc().innerRadius(labelRadius).outerRadius(labelRadius);
 
-  svg
+  //creating pie pieces from arcs.
+  const pies = g
+    .selectAll(".arc")
+    .data(pie(fixedData))
+    .enter()
+    .append("g")
+    .attr("class", "arc");
+  pies
+    .append("path")
+    .attr("d", arc)
+    .attr("fill", (d) => colors(d.data.value));
+  // uncomment these for transition effect
+  // .transition()
+  // .duration(function (d, i) {
+  //   return i * 200;
+  // })
+  // .attrTween("d", function (d) {
+  //   var i = d3.interpolate(d.startAngle + 0.1, d.endAngle);
+  //   return function (t) {
+  //     d.endAngle = i(t);
+  //     return arc(d);
+  //   };
+  // });
+
+  //adding text data on arcs
+  pies
     .append("g")
     .attr("font-family", "sans-serif")
-    .attr("font-size", 12)
+    .attr("font-size", 15)
     .attr("text-anchor", "middle")
     .selectAll("text")
     .data(pie(fixedData))
@@ -60,18 +85,6 @@ const initPieChart = (data) => {
         .attr("fill-opacity", 0.7)
         .text((d) => d.data.value.toLocaleString())
     );
-
-  const pies = g
-    .selectAll(".arc")
-    .attr("stroke", "white")
-    .data(pie(fixedData))
-    .enter()
-    .append("g")
-    .attr("class", "arc");
-  pies
-    .append("path")
-    .attr("d", path)
-    .attr("fill", (d) => colors(d.data.value));
 };
 
 module.exports = initPieChart;

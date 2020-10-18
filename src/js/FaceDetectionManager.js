@@ -1,4 +1,5 @@
 const EventEmitter = require("./EventManager");
+
 class FaceDetectionManager {
   constructor(faceapi) {
     this.faceapi = faceapi;
@@ -9,7 +10,7 @@ class FaceDetectionManager {
     return this._eventEmitter;
   }
 
-  startVideo(callback) {
+  startVideo() {
     const constraints = {
       audio: true,
       video: {},
@@ -54,7 +55,6 @@ class FaceDetectionManager {
       }
       video.onloadedmetadata = () => {
         video.play();
-        callback();
       };
     }
   }
@@ -67,9 +67,7 @@ class FaceDetectionManager {
       this.faceapi.nets.faceExpressionNet.loadFromUri("../FaceAPI_Models"),
       this.faceapi.nets.ageGenderNet.loadFromUri("../FaceAPI_Models"),
     ]).then(() => {
-      // do this on click
       this.eventEmitter.emit("onModelLoad");
-      //   this.startVideo(callback);
     });
   }
 

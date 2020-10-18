@@ -18,7 +18,7 @@ const captureEmotion = async () => {
 
     //do something with emotion data
     fdManager.captureEmotionFromVideoContinuous(video, (emotions) => {
-      // console.log("current emotion logs from index:", emotions);
+      // console.log("emotions:", emotions);
       initPieChart(emotions);
     });
 
@@ -26,12 +26,8 @@ const captureEmotion = async () => {
     // const emotion = await fdHelper.captureEmotionFromVideoOnce(video);
     // console.log('emotion:', emotion);
   },
-  onModelReady = () => {
-    fdManager.hide(loadingText);
-    fdManager.hide(spinner);
-    startBtn.disabled = false;
-  },
   init = () => {
+    fdManager.startVideo();
     fdManager.loadModels();
 
     eventEmitter.on("onModelLoad", () => {
@@ -40,10 +36,15 @@ const captureEmotion = async () => {
 
     startBtn.onclick = () => {
       if (!isPlaying) {
-        fdManager.startVideo(captureEmotion);
+        captureEmotion();
         isPlaying = true;
       }
     };
+  },
+  onModelReady = () => {
+    fdManager.hide(loadingText);
+    fdManager.hide(spinner);
+    startBtn.disabled = false;
   };
 
 init();
