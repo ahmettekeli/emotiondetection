@@ -61,11 +61,11 @@ class FaceDetectionManager {
 
   loadModels() {
     Promise.all([
-      this.faceapi.nets.tinyFaceDetector.loadFromUri("../../FaceAPI_Models"),
-      this.faceapi.nets.faceLandmark68Net.loadFromUri("../../FaceAPI_Models"),
-      this.faceapi.nets.faceRecognitionNet.loadFromUri("../../FaceAPI_Models"),
-      this.faceapi.nets.faceExpressionNet.loadFromUri("../../FaceAPI_Models"),
-      this.faceapi.nets.ageGenderNet.loadFromUri("../../FaceAPI_Models"),
+      this.faceapi.nets.tinyFaceDetector.loadFromUri("../FaceAPI_Models"),
+      this.faceapi.nets.faceLandmark68Net.loadFromUri("../FaceAPI_Models"),
+      this.faceapi.nets.faceRecognitionNet.loadFromUri("../FaceAPI_Models"),
+      this.faceapi.nets.faceExpressionNet.loadFromUri("../FaceAPI_Models"),
+      this.faceapi.nets.ageGenderNet.loadFromUri("../FaceAPI_Models"),
     ]).then(() => {
       this.eventEmitter.emit("onModelLoad");
     });
