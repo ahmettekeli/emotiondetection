@@ -4,7 +4,7 @@
 <p align="center">
   <h3 align="center">Emotion Detection</h3>
   <p align="center">
-    <a href="https://github.com/ahmettekeli/emotiondetection">View Demo</a>
+    <a href="https://detectemotion.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/ahmettekeli/emotiondetection/issues">Report Bug</a>
     ·

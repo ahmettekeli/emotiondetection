@@ -23,7 +23,7 @@ const setEmotionEmoji = (emotions) => {
     for (let index = 0; index < Object.keys(data).length; index++) {
       fixedData.push({
         name: Object.keys(data)[index],
-        value: Object.values(data)[index],
+        value: Object.values(data)[index] * 100,
       });
     }
     return fixedData;
