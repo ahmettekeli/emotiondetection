@@ -40,12 +40,12 @@ const captureEmotion = async () => {
     startBtn.disabled = false;
   };
 
-init();
+window.onload = () => {
+  init();
+};
 
 //TODO:
 
 // github logo with the repo's url
-// delete Jekyll config
 // add fonts and some explanatory texts
-// add title logo
 //
